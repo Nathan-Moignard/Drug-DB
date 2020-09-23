@@ -1,0 +1,20 @@
+{
+  "key": {
+    "name": "composition",
+    "type": "array"
+  },
+  "mapping": {
+    "cis":  { "position": 0 },
+    "elementPharmaceutique": { "position": 1 },
+    "codeSubstance":  { "position": 2, "type": "integer" },
+    "denominationSubstance" :  { "position": 3 },
+    "etatCommercialisation" :  { "position": 4 },
+    "dosageSubstance" :  { "position": 5 },
+    "referenceDosage" :  { "position": 6 },
+    "natureComposant" :  { "position": 7,  "type": "enum", "options": {
+      "SA": "principe actif",
+      "ST": "fraction thérapeutique"
+    }} ,
+    "LienSubtanceActivesEtFractionsTherapeutiques" :  { "position": 8 }
+  }
+}
