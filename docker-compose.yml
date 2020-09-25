@@ -1,4 +1,29 @@
 version: "3"
 services:
-    build-db:
+    utils:
+        container_name: "utils"
         build: .
+        ports:
+            - "80:80"
+    MariaDB:
+        image: mariadb
+        restart: on-failure
+        environment:
+            MYSQL_ROOT_PASSWORD: "toor"
+            MYSQL_DATABASE: "Drugs"
+            MYSQL_USER: "user"
+            MYSQL_PASSWORD: "password"
+        ports:
+            - "3306:3306"
+        volumes:
+            - ./mysql:/var/lib/mysql
+    # phpmyadmin:
+    #     image: phpmyadmin:apache
+    #     ports:
+    #         - "80:80"
+    #         - "443:443"
+    #     environment:
+    #         - PMA_ARBITRARY=1
+    #         - PMA_HOST=MariaDB
+    #     depends_on:
+    #         - MariaDB
