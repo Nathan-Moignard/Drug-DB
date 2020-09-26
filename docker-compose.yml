@@ -4,7 +4,7 @@ services:
         container_name: "utils"
         build: .
         ports:
-            - "80:80"
+            - "443:443"
     MariaDB:
         image: mariadb
         restart: on-failure
@@ -17,13 +17,3 @@ services:
             - "3306:3306"
         volumes:
             - ./mysql:/var/lib/mysql
-    # phpmyadmin:
-    #     image: phpmyadmin:apache
-    #     ports:
-    #         - "80:80"
-    #         - "443:443"
-    #     environment:
-    #         - PMA_ARBITRARY=1
-    #         - PMA_HOST=MariaDB
-    #     depends_on:
-    #         - MariaDB
