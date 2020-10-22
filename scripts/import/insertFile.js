@@ -1,16 +1,15 @@
-const fs = require('fs');
-const parse = require('csv-parse');
-const iconv = require('iconv-lite');
+const fs = require('fs')
+const parse = require('csv-parse')
+const iconv = require('iconv-lite')
 const TransformStream = require('./TransformStream')
 const WriterStream = require('./StreamWriter')
 
-
-module.exports = function({
-                            name,
-                            path,
-                            db
-                          }, callback) {
-  const headers = require('./config/'+ name)
+module.exports = function ({
+  name,
+  path,
+  db
+}, callback) {
+  const headers = require('./config/' + name)
   const decoder = iconv.decodeStream('win1252')
   const input = fs.createReadStream(path)
   const transform = new TransformStream(headers)
