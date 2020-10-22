@@ -5,6 +5,10 @@ services:
         build: .
         ports:
             - "443:443"
+        volumes:
+            - "./apache:/var/www/html/.well-known/acme-challenge/"
+        networks:
+            - apache_db
     MariaDB:
         image: mariadb
         restart: on-failure
@@ -17,3 +21,7 @@ services:
             - "3306:3306"
         volumes:
             - ./mysql:/var/lib/mysql
+        networks:
+            - apache_db
+networks:
+    apache_db:
