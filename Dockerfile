@@ -25,8 +25,9 @@ ENV PMA_HOST=MariaDB
 EXPOSE 443
 
 RUN a2enmod ssl && mkdir /etc/apache2/ssl
-COPY ./ssl/fullchain.pem /etc/apache2/ssl/fullchain.pem
-COPY ./ssl/privkey.pem /etc/apache2/ssl/privkey.pem
+# Replace the next line by your own certificate (temporary certificate creation)
+RUN openssl req -batch -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/apache2/ssl/privkey.pem -out /etc/apache2/ssl/fullchain.pem
+
 COPY ./ssl/default-ssl.conf /etc/apache2/sites-available/default-ssl.conf
 RUN a2ensite default-ssl
 
