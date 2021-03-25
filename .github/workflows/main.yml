@@ -18,12 +18,10 @@ jobs:
       ME_CONFIG_BASICAUTH_USERNAME: admin
       ME_CONFIG_BASICAUTH_PASSWORD: password
 
-
     steps:
       - uses: actions/checkout@v2
 
-      - name: Building docker-compose
-        run: docker-compose build
+
 
       - name: Running docker-compose
         run: docker-compose up -d
