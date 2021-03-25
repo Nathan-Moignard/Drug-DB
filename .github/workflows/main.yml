@@ -10,6 +10,15 @@ jobs:
   build:
     name: Building Project
     runs-on: ubuntu-latest
+
+    env:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: toor
+      MONGO_INITDB_DATABASE: Drugs
+      ME_CONFIG_BASICAUTH_USERNAME: admin
+      ME_CONFIG_BASICAUTH_PASSWORD: password
+
+
     steps:
       - uses: actions/checkout@v2
 

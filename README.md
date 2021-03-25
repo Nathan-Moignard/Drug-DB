@@ -1,5 +1,5 @@
 # Drug-DB
-SQL-DB to store all drugs of France
+French Drugs DataBase in MongoDB
 
 Build Status:
 
