@@ -16,4 +16,4 @@ WORKDIR /app
 
 COPY --from=builder /app/sources/ /app/sources/
 
-CMD ["/wait-for-it.sh", "mongo:27017", "--strict", "-t", "0", "--", "bash", "/drug-importer.sh"]
+CMD ["bash", "/wait-for-it.sh", "mongo:27017", "--strict", "-t", "0", "--", "bash", "/drug-importer.sh"]

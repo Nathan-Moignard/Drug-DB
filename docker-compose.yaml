@@ -31,7 +31,7 @@ services:
       - mongo
     volumes:
       - "./wait-for-it.sh:/node_modules/mongo-express/wait-for-it.sh"
-    command: ["./wait-for-it.sh", "mongo:27017", "-t", "0", "--strict", "--", "node", "app.js"]
+    command: ["bash", "./wait-for-it.sh", "mongo:27017", "-t", "0", "--strict", "--", "node", "app.js"]
 
   drugs-importer:
     build:
@@ -50,6 +50,3 @@ services:
 
 networks:
   db:
-
-volumes:
-  express:
