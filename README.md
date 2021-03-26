@@ -7,4 +7,4 @@ Build Status:
 
 Quality Badge:
 
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/615db405100940bd92e5edaea446cedc)](https://www.codacy.com?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Nathan-Moignard/Drug-DB&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/a3cc5a692ac44f09a8130579643ee541)](https://www.codacy.com/gh/Nathan-Moignard/Drug-DB/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Nathan-Moignard/Drug-DB&amp;utm_campaign=Badge_Grade)
