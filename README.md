@@ -16,4 +16,4 @@
 
 <br>
 
-#### PS: All data is collected from <a href="https://base-donnees-publique.medicaments.gouv.fr/index.php">Base de données publique des médicaments</a>
+#### PS: All data is collected from <a href="https://base-donnees-publique.medicaments.gouv.fr/index.php" target="_blank">Base de données publique des médicaments</a>
