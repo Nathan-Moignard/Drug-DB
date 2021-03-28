@@ -48,5 +48,15 @@ services:
       - "./wait-for-it.sh:/wait-for-it.sh"
       - "./drug-importer.sh:/drug-importer.sh"
 
+  api:
+    build:
+      context: ./API/
+    container_name: api
+    environment:
+      API_PORT: 8080
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mongo
 networks:
   db:

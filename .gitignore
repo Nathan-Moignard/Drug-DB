@@ -1,5 +1,11 @@
 # Database Data
 DB/data/
 
+# Compiled TS
+dist/
+
+# Node Modules
+node_modules/
+
 # Environment variables
 .env
