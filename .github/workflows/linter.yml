@@ -1,5 +1,13 @@
 name: CI/Linter
 
+on:
+  push:
+    branches: [ master, dev_API ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+
   linter:
     name: Build & ESLint
     runs-on: ubuntu-20.04
