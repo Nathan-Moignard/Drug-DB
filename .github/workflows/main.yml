@@ -1,15 +1,16 @@
-name: CI
+name: CI/Containerization
 
 on:
   push:
-    branches: [ master ]
+    branches: [ master, dev_API ]
   pull_request:
     branches: [ master ]
 
 jobs:
+
   build:
-    name: Building Project
-    runs-on: ubuntu-latest
+    name: Building Project Containers
+    runs-on: ubuntu-20.04
 
     env:
       MONGO_INITDB_ROOT_USERNAME: root
