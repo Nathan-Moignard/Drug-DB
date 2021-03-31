@@ -7,9 +7,22 @@ on:
     branches: [ master ]
 
 jobs:
+  linter:
+    name: Project Linter (ESLINT)
+    runs-on: ubuntu-20.04
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Compiling TypeScript
+        run: npx tsc
+      
+      - name: Executing Linter
+        run: npm test
+
   build:
     name: Building Project
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
 
     env:
       MONGO_INITDB_ROOT_USERNAME: root
