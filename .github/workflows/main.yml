@@ -12,8 +12,11 @@ jobs:
     runs-on: ubuntu-20.04
 
     strategy:
-          matrix:
-            node-version: [10.x, 12.x, 14.x, 15.x]
+      matrix:
+        node-version: [10.x, 12.x, 14.x, 15.x]
+
+    env:
+      workDir: ./API/
 
     steps:
       - uses: actions/checkout@v2
@@ -25,12 +28,15 @@ jobs:
 
       - name: Installing Dependencies
         run: npm install
+        working-directory: {{ env.workDir }}
 
       - name: Compiling TypeScript
         run: npx tsc
+        working-directory: {{ env.workDir }}
       
       - name: Executing Linter
         run: npm test
+        working-directory: {{ env.workDir }}
 
   build:
     name: Building Project
