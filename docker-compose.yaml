@@ -1,51 +1,13 @@
 version: "3"
 
 services:
-  mongo:
-    image: mongo:3.6-xenial
-    container_name: mongo
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME}
-      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
-      MONGO_INITDB_DATABASE: ${MONGO_INITDB_DATABASE}
-    volumes:
-      - "./DB/data:/data/db"
-      - "./DB/init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js"
-    ports:
-      - "27017:27017"
-    networks:
-      db:
-
-  mongo-express:
-    image: mongo-express:0.54
-    container_name: mongo-express
-    restart: always
-    environment:
-      ME_CONFIG_MONGODB_ADMINUSERNAME: ${MONGO_INITDB_ROOT_USERNAME}
-      ME_CONFIG_MONGODB_ADMINPASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
-      ME_CONFIG_BASICAUTH_USERNAME: ${ME_CONFIG_BASICAUTH_USERNAME}
-      ME_CONFIG_BASICAUTH_PASSWORD: ${ME_CONFIG_BASICAUTH_PASSWORD}
-    ports:
-      - "8081:8081"
-    networks:
-      db:
-    depends_on:
-      - mongo
-    volumes:
-      - "./wait-for-it.sh:/node_modules/mongo-express/wait-for-it.sh"
-    command: ["bash", "./wait-for-it.sh", "mongo:27017", "-t", "0", "--strict", "--", "node", "app.js"]
-
   drugs-importer:
     build:
       context: ./Importer/
     container_name: drugs-importer
     environment:
-      USERNAME: ${MONGO_INITDB_ROOT_USERNAME}
-      PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
-    networks:
-      db:
-    depends_on:
-      - mongo
+      MONGODB_USERNAME: ${MONGODB_USERNAME}
+      MONGODB_PASSWORD: ${MONGODB_PASSWORD}
     volumes:
       - "./wait-for-it.sh:/wait-for-it.sh"
       - "./drug-importer.sh:/drug-importer.sh"
@@ -57,13 +19,9 @@ services:
     environment:
       API_PORT: 8080
       MONGO_DATABASE: ${MONGO_INITDB_DATABASE}
+      MONGODB_USERNAME: ${MONGODB_USERNAME}
+      MONGODB_PASSWORD: ${MONGODB_PASSWORD}
     ports:
       - "8080:8080"
-    networks:
-      db:
-    depends_on:
-      - mongo
     volumes:
       - "./wait-for-it.sh:/wait-for-it.sh"
-networks:
-  db:

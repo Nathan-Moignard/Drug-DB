@@ -1,6 +1,6 @@
 import json
 
-from src.resources import CIS_bdpm_List, CIS_CIP_bdpm_List, CIS_COMPO_bdpm_List, CIS_HAS_SMR_bdpm_List, CIS_HAS_ASMR_bdpm_List, HAS_LiensPageCT_bdpm_List, CIS_GENER_bdpm_List, CIS_CPD_bdpm_List
+from src.resources import CIS_bdpm_List, CIS_CIP_bdpm_List, CIS_COMPO_bdpm_List, CIS_HAS_SMR_bdpm_List, CIS_HAS_ASMR_bdpm_List, HAS_LiensPageCT_bdpm_List, CIS_GENER_bdpm_List, CIS_CPD_bdpm_List, CIS_InfoImportantes_List
 
 
 def importer(fileName, dictionary) -> None:
@@ -24,3 +24,4 @@ if __name__ == "__main__":
     importer("HAS_LiensPageCT_bdpm", HAS_LiensPageCT_bdpm_List)
     importer("CIS_GENER_bdpm", CIS_GENER_bdpm_List)
     importer("CIS_CPD_bdpm", CIS_CPD_bdpm_List)
+    importer("CIS_InfoImportantes", CIS_InfoImportantes_List)

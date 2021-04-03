@@ -74,3 +74,10 @@ CIS_CPD_bdpm_List: List = [
     'name',
     'conditionPrescriptionDelivrance'
 ]
+
+CIS_InfoImportantes_List: List = [
+    'name',
+    'beginSecurityInformation',
+    'endSecurityInformation',
+    'textLink'
+]
