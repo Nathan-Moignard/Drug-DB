@@ -35,4 +35,4 @@ jobs:
         run: npx tsc
       
       - name: Executing Linter
-        run: npm test
+        run: npm eslint
